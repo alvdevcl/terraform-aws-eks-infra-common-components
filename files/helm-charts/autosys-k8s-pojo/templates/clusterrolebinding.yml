@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: autosys-k8s-pojo-clusterrolebinding
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.serviceAccountName }}
+  apiGroup: ""
+  namespace: {{ .Values.namespace }}
+roleRef:
+  kind: ClusterRole
+  name: autosys-k8s-pojo-clusterrole
+  apiGroup: rbac.authorization.k8s.io

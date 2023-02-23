@@ -1,0 +1,9 @@
+apiVersion: v2
+name: autosys-k8s-pojo
+description: This chart creates a namespace, service account, clusterrole and clusterrolebinding that will be used by Autosys. 
+
+type: application
+
+version: 0.3.0
+
+appVersion: "1.0.0"

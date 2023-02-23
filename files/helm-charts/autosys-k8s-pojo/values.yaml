@@ -1,0 +1,5 @@
+#Service Account Name used by Autosys
+serviceAccountName: autosys-k8s-pojo
+
+#Namespace to host the autosys service account & secret token
+namespace: autosys-k8s-pojo

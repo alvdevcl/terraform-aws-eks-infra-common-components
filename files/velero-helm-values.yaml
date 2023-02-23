@@ -1,0 +1,30 @@
+image:
+  repository: cgregistry.capgroup.com/velero/velero
+  tag: v1.8.1
+
+initContainers:
+  - name: velero-plugin-for-aws
+    image: cgregistry.capgroup.com/velero/velero-plugin-for-aws:v1.2.0
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
+
+kubectl:
+  image:
+    repository: cgregistry.capgroup.com/bitnami/kubectl
+
+configuration:
+  provider: aws
+
+credentials:
+  useSecret: false
+
+schedules:
+  scheduledbackup:
+    disabled: false
+    schedule: "0 0 * * *"
+    useOwnerReferencesInBackup: false
+    template:
+      ttl: "840h"
+      includedNamespaces:
+      - "*"
